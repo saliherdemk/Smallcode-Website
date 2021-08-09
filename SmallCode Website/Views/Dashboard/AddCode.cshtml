@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+@if (TempData["required"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        Title and Content are required.
+    </div>}
+
+
+<head>
+    <title></title>
+    <script src="~/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+    <form asp-action="AddCode" method="post">
+        <label asp-for="Title">Title: </label>
+        <input asp-for="Title" required /> <br />
+        <textarea id="editor" placeholder="Enter Text" asp-for="CodeContent" required></textarea> <br />
+        <input type="submit" class="btn btn-primary" value="Add Code" />
+    </form>
+
+    <script>
+
+        var editor = CKEDITOR.replace('editor', {
+
+            height: 220
+        });
+        //https://stackoverflow.com/questions/50100935/ckeditor-the-required-attribute-within-textarea-tag-is-not-working
+        editor.on('required', function (evt) {
+            editor.showNotification('This field is required.', 'warning');
+            evt.cancel();
+        });
+    </script>
+</body>

@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/css/code.css" rel="stylesheet" />
+
+
+@if (Model != null)
+{
+    <div class="layout">
+        <h2>@Model.Title</h2>
+        <hr />
+        <h5>@Model.CreatedDate <small>by</small> @Model.Writer</h5>
+        <button type="button" class="btn btn-secondary" id="copy-content">Copy</button>
+        <hr />
+        <pre class="prettyprint" id="content">@Html.Raw(Model.CodeContent)</pre>
+        
+
+    </div>
+}
+
+<script>
+    //from https://stackoverflow.com/questions/49110041/how-can-i-copy-pre-tag-code-into-clipboard-in-html
+    function copy() {
+        var content = document.getElementById("content").textContent;
+        var textarea = document.createElement('textarea');
+        textarea.textContent = content;
+        document.body.append(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+        document.getElementById("copy-content").innerHTML = "Coppied!";
+  }
+
+        document.getElementById("copy-content").addEventListener("click", copy);
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>

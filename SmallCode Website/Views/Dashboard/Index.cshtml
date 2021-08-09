@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SmallCode_Website.Models.Codes>
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@if (TempData["deleted"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        Code deleted succesfully!
+    </div>
+}
+
+@if (TempData["added"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        Code added succesfully!
+    </div>
+}
+
+
+<br />
+<table class="table">
+    <thead>
+        <tr>
+
+            <th scope="col">ID</th>
+            <th scope="col">Writer</th>
+            <th scope="col">Title</th>
+            <th scope="col">Created Date</th>
+            <th scope="col"><a class="btn btn-success" asp-controller="Dashboard" asp-action="AddCode">Add Code</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Writer</td>
+                    <td>@item.Title</td>
+                    <td>@item.CreatedDate</td>
+                    <td>
+                        <a class="btn btn-danger" asp-controller="Dashboard" asp-action="DeleteCode" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+
+            }
+
+        }
+
+
+
+    </tbody>
+</table>

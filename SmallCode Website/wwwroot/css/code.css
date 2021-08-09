@@ -1,0 +1,12 @@
+﻿pre.prettyprint {
+    padding: 0px;
+    border: none;
+}
+
+h4{
+    float:left;
+}
+
+#copy-content{
+    float:right;
+}

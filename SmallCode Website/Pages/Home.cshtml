@@ -1,0 +1,34 @@
+﻿@page
+@model SmallCode_Website.Pages.HomeModel
+@{
+}
+
+<link href="~/css/Style.css" rel="stylesheet" />
+
+@if (Model._allCode.Count == 0)
+{
+    <div class="alert alert-danger" role="alert">
+        No code has been published yet!
+    </div>
+}
+
+<div class="all">
+    @foreach (var item in Model._allCode)
+    {
+        <a class="card_glass" asp-controller="Codes" asp-action="Code" asp-route-id="@item.Id">
+            <div class="thumbnail"><pre class="prettyprint" id="thumbCode">@Html.Raw(item.CodeContent)</pre> </div>
+            <hr />
+            <div class="title">@item.Title</div>
+
+            <div class="created_date">@item.CreatedDate.Split(' ')[0]</div>
+            <div class="writer"><small style="font-style:italic;">by</small> <span style="font-style:italic;font-size:x-large;font-family:'Times New Roman', Times, serif;">@item.Writer</span></div>
+
+        </a>
+    }
+</div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
