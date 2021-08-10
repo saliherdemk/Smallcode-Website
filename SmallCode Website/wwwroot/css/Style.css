@@ -10,8 +10,8 @@ pre.prettyprint {
 
 .all .card_glass {
     position: relative;
-    float:left;
-    width:225px;
+    float: left;
+    width: 225px;
     height: 300px;
     box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
     border-radius: 15px;
@@ -19,9 +19,10 @@ pre.prettyprint {
     border-top: 1px solid rgba(255,255,255,0.2);
     border-left: 1px solid rgba(255,255,255,0.2);
     margin: 20px;
-    margin-bottom:50px;
-    backdrop-filter:blur(15px);
+    margin-bottom: 50px;
+    backdrop-filter: blur(15px);
     transition: all 0.3s ease-in-out;
+    animation: animate 1s linear 1;
 }
 
 
@@ -89,4 +90,13 @@ pre::-webkit-scrollbar-thumb:horizontal {
 a, a:link, a:visited, a:hover, a:active{
     color:black;
     text-decoration:none;
+}
+
+@keyframes animate{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
 }
