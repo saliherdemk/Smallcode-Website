@@ -71,6 +71,10 @@ body {
   display:none;
 }
 
+.github img{
+    height:60px;
+}
+
 @media all and (max-width:580px) {
     .github
     {
