@@ -1,7 +1,7 @@
 # Smallcode-Website
 Asp.net Website for sharing code blocks.
 
-https://smallcode.somee.com/
+https://codeblocks.somee.com/
 
 # Usage
 ```
